@@ -1,10 +1,12 @@
 import React from 'react'
 // import Typography from '@material-ui/core/Typography'
-import { Typography } from '@material-ui/core'
+// import Button from '@material-ui/core/Button'
+// import ButtonGroup from '@material-ui/core/ButtonGroup'
+import { Typography, Button, Container } from '@material-ui/core'
 
 export default function Create() {
   return (
-    <div>
+    <Container>
       {/* Create page */}
       {/* <Typography 
         variant="h1"
@@ -28,6 +30,25 @@ export default function Create() {
       >
         Create a New Note
       </Typography>
-    </div>
+
+      <Button
+        onClick={() => console.log("You click me")}
+        type="submit"
+        color="secondary"
+        variant="contained"
+        // disableElevation //which means drop shadow
+      >
+        Submit
+      </Button>
+
+      {/* <Button type="submit" color="primary" >Submit</Button>
+      <Button type="submit" color="secondary" variant="outlined" >Submit</Button>
+
+      <ButtonGroup color="secondary" variant="contained" >
+        <Button>One</Button>
+        <Button>Two</Button>
+        <Button>Three</Button>
+      </ButtonGroup> */}
+    </Container>
   )
 }
