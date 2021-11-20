@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Notes from './pages/Notes'
 import Create from './pages/Create'
-import { createTheme, ThemeProvider } from '@mui/material' //createMuiTheme has been deprecated
+import { createTheme, ThemeProvider } from '@mui/material/styles' //createMuiTheme has been deprecated
 import { purple } from '@mui/material/colors'
 
 const theme = createTheme({
