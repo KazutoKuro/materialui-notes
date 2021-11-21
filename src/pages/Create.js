@@ -5,10 +5,16 @@ import React, { useState } from 'react'
 // import AcUnitOutlinedIcon from '@mui/icons-material/AcUnitOutlined';
 // import SendIcon from '@mui/icons-material/Send';
 
-import { Typography, Button, Container,TextField } from '@mui/material' 
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { makeStyles } from '@mui/styles';
-import { StyledEngineProvider } from '@mui/material/styles';
+import { Typography, Button, Container,TextField} from '@mui/material'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+import { makeStyles } from '@mui/styles'
+import { StyledEngineProvider } from '@mui/material/styles'
+import Radio from '@mui/material/Radio'
+import RadioGroup from '@mui/material/RadioGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import FormControl from '@mui/material/FormControl'
+import FormLabel from '@mui/material/FormLabel'
+
 
 const useStyles = makeStyles({
   // btn:{
@@ -30,11 +36,12 @@ const useStyles = makeStyles({
 })
 
 export default function Create() {
-  const classes = useStyles();
-  const [title, setTitle] = useState('');
-  const [details, setDetails] = useState('');
-  const [titleError, setTitleError] = useState('');
-  const [detailsError, setDetailsError] = useState('');
+  const classes = useStyles()
+  const [title, setTitle] = useState('')
+  const [details, setDetails] = useState('')
+  const [titleError, setTitleError] = useState('')
+  const [detailsError, setDetailsError] = useState('')
+  const [category, setCategory] = useState('money')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -48,13 +55,14 @@ export default function Create() {
       setDetailsError(true)
     }
     if(title && details) {
-      console.log(title, details)
+      console.log(title, details, category)
+      
     }
   }
 
   return (
     <StyledEngineProvider injectFirst>
-      <Container>
+      <Container size="sm">
         {/* Create page */}
         {/* <Typography 
           variant="h1"
@@ -112,6 +120,16 @@ export default function Create() {
             required
             error={detailsError}
           />
+
+          <FormControl className={classes.field}>
+            <FormLabel disabled={true} >Note Category</FormLabel>
+            <RadioGroup value={category} onChange={(e) => setCategory(e.target.value)} name="radio-buttons-group">
+              <FormControlLabel value="money" control={<Radio color="secondary" />} label="Money" />
+              <FormControlLabel value="todos" control={<Radio color="secondary" />} label="Todos" />
+              <FormControlLabel value="reminders" control={<Radio color="secondary" />} label="Reminders" />
+              <FormControlLabel value="work" control={<Radio color="secondary"/>} label="Work" />
+            </RadioGroup>
+          </FormControl>
 
           <Button
             className={classes.btn}
