@@ -1,16 +1,17 @@
 import React from 'react'
-import Drawer from '@mui/material/Drawer';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import { ListItem } from '@mui/material';
-import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons';
-import { useHistory, useLocation } from 'react-router-dom';
-import { makeStyles } from '@mui/styles'
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
+import Drawer from '@mui/material/Drawer'
+import Typography from '@mui/material/Typography'
+import List from '@mui/material/List'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import { ListItem } from '@mui/material'
+import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons'
+import { useHistory, useLocation } from 'react-router-dom'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
 import { format } from 'date-fns';
+import Avatar from '@mui/material/Avatar'
+import { makeStyles } from '@mui/styles'
 
 const drawerWidth = 240
 
@@ -42,6 +43,9 @@ const useStyles = makeStyles((theme) => {
         toolbar: theme.mixins.toolbar,
         date: {
             flexGrow: 1
+        },
+        avatar: {
+            marginLeft: theme.spacing(2)
         }
     }   
 })
@@ -80,6 +84,7 @@ export default function Layout({ children}) {
                     <Typography>
                         Daily Diary
                     </Typography>
+                    <Avatar src="/react.png" className={classes.avatar} />
                 </Toolbar>
             </AppBar>
 
