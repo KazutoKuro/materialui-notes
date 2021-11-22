@@ -15,7 +15,7 @@ import { makeStyles } from '@mui/styles'
 
 const drawerWidth = 240
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles((theme)=>{
     return {
         page: {
             background: '#f9f9f9',
