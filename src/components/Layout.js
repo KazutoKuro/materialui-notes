@@ -1,14 +1,16 @@
-import { makeStyles } from '@mui/styles'
 import React from 'react'
 import Drawer from '@mui/material/Drawer';
 import Typography from '@mui/material/Typography';
 import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { ListItem } from '@mui/material';
 import { AddCircleOutlined, SubjectOutlined } from '@material-ui/icons';
 import { useHistory, useLocation } from 'react-router-dom';
+import { makeStyles } from '@mui/styles'
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import { format } from 'date-fns';
 
 const drawerWidth = 240
 
@@ -33,6 +35,13 @@ const useStyles = makeStyles((theme) => {
         },
         title: {
             padding: theme.spacing(2)
+        },
+        appBar: {
+            width: `calc(100% - ${drawerWidth}px`
+        },
+        toolbar: theme.mixins.toolbar,
+        date: {
+            flexGrow: 1
         }
     }   
 })
@@ -58,6 +67,21 @@ export default function Layout({ children}) {
     return (
         <div className={classes.root}>
             {/* app bar */}
+            <AppBar 
+                position="fixed" 
+                className={classes.appBar}
+                elevation={0}
+                color="primary"
+            >
+                <Toolbar>
+                    <Typography className={classes.date}>
+                        Today is the{ format(new Date(), 'do MMMM Y') }
+                    </Typography>
+                    <Typography>
+                        Daily Diary
+                    </Typography>
+                </Toolbar>
+            </AppBar>
 
             {/* side drawer */}
             <Drawer
@@ -90,6 +114,7 @@ export default function Layout({ children}) {
             </Drawer>
 
             <div className={classes.page}>
+                <div className={classes.toolbar}></div>
                 {children}
             </div>
             
