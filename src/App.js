@@ -1,23 +1,23 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Notes from './pages/Notes'
 import Create from './pages/Create'
-import { createTheme, ThemeProvider } from '@mui/material/styles' //createMuiTheme has been deprecated
-import { purple } from '@mui/material/colors'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core'
+import { purple } from '@material-ui/core/colors'
 import Layout from './components/Layout'
 
-const theme = createTheme({
+const theme = createMuiTheme({
   palette: {
     primary: {
       main: '#fefefe'
     },
     secondary: purple
   },
-  typography:{
-    fontFamily:'Quicksand',
+  typography: {
+    fontFamily: 'Quicksand',
     fontWeightLight: 400,
     fontWeightRegular: 500,
-    fontWeightMedium: 400,
-    fontWeightBold: 700
+    fontWeightMedium: 600,
+    fontWeightBold: 700,
   }
 })
 
